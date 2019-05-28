@@ -12,4 +12,15 @@ namespace StolenBreakfastDrone
         {
         }
     }
+
+    public class DroneManager
+    {
+        public static int FindUniqueDeliveryId(int[] deliveryIds)
+        {
+            // Find the one unique ID in the array
+
+
+            return 0;
+        }
+    }
 }
