@@ -17,6 +17,8 @@ namespace StolenBreakfastDrone
     {
         public static int FindUniqueDeliveryId(int[] deliveryIds)
         {
+#if MINE
+
             Dictionary<int, int> suspects = new Dictionary<int, int>();
             // Find the one unique ID in the array
             // Iterate the deliveryIds, creating a dictionary.  Find the id(s) in dictionary with < 2 mentions.
@@ -32,7 +34,8 @@ namespace StolenBreakfastDrone
                 }
             }
 
-            var one = suspects.Where((LessThanTwoMentions)).ToList() ;
+            // var one = suspects.Where((LessThanTwoMentions)).ToList() ;
+            var one = suspects.Where(pair => pair.Value < 2).ToList();
 
             if (one.Any( ))
             {
@@ -40,6 +43,16 @@ namespace StolenBreakfastDrone
             }
 
             return 0;
+#else
+            int uniqueDeliveryId = 0;
+
+            foreach (int deliveryId in deliveryIds)
+            {
+                uniqueDeliveryId ^= deliveryId;
+            }
+
+            return uniqueDeliveryId;
+#endif
         }
 
         private static bool LessThanTwoMentions(KeyValuePair<int, int> arg)

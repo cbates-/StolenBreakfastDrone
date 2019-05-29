@@ -40,7 +40,7 @@ namespace UnitTests
         public void UniqueIdInTheMiddleTest()
         {
             var expected = 1;
-            var actual = DroneManager.FindUniqueDeliveryId(new int[] { 3, 2, 1, 2, 3 });
+            var actual = DroneManager.FindUniqueDeliveryId(new int[] { 3, 2, 1, 2, 3, 2, 2 });
             Assert.AreEqual(expected, actual);
         }
 
