@@ -37,6 +37,14 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void UniqueIdComesLastTest2()
+        {
+            var expected = 1001;
+            var actual = DroneManager.FindUniqueDeliveryId(new int[] { 3, 17, 32, 32, 3, 17, 1001 });
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         public void UniqueIdInTheMiddleTest()
         {
             var expected = 1;
