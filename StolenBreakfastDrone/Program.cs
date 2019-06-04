@@ -44,6 +44,9 @@ namespace StolenBreakfastDrone
 
             return 0;
 #else
+            //
+            // This is the solution from IC.
+            //
             int uniqueDeliveryId = 0;
 
             foreach (int deliveryId in deliveryIds)
